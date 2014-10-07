@@ -18,11 +18,12 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	private TextView time, amp;
-   private MediaRecorder myAudioRecorder;
-   private String outputFile = null;
-   private Button start,stop,play;
-   double amplitude;
-   int seconds1, seconds2;
+	private MediaRecorder myAudioRecorder;
+	private String outputFile = null;
+	private Button start,stop,play;
+	double amplitude;
+	int seconds1, seconds2;
+	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -41,20 +42,7 @@ public class MainActivity extends Activity {
       myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
       myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
       myAudioRecorder.setOutputFile(outputFile);
-
    }
-//      public double getAmplitude() {
-//      		//myAudioRecorder.prepare();
-//            //myAudioRecorder.start();
-//            if (myAudioRecorder != null){
-//                  return  (myAudioRecorder.getMaxAmplitude());}
-//            else{
-//                   return 0;}
-//
-//          }
-   
-
-  
 
    public void start(View view){
 	  ((Chronometer) findViewById(R.id.chronometer1)).start();
@@ -72,28 +60,23 @@ public class MainActivity extends Activity {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
-//	  if (myAudioRecorder != null){
-//		  amplitude = myAudioRecorder.getMaxAmplitude();}
-//	  
-//	  else { 
-//		  amplitude = 0;
-//	  }
+
       start.setEnabled(false);
       stop.setEnabled(true);
       Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
-      
-
    }
 
    public double getAmplitude() { 
-   if (myAudioRecorder != null){
-		  return myAudioRecorder.getMaxAmplitude();}
-	  
-	  else { 
+	   if (myAudioRecorder != null){
+		  return myAudioRecorder.getMaxAmplitude();
+	   }  
+	   else { 
 		  return 0;
-	  }
+	   }
    }
-	  
+   
+
+
    public void stop(View view){
 	   ((Chronometer) findViewById(R.id.chronometer1)).stop();
 	   Calendar stopTime = Calendar.getInstance();
@@ -111,7 +94,7 @@ public class MainActivity extends Activity {
       int totalTime = seconds2 - seconds1;
       time = (TextView) findViewById(R.id.timeID);
       time.setText(String.valueOf(totalTime));
-      double amplitude = getAmplitude();
+      amplitude = getAmplitude();
       amp = (TextView) findViewById(R.id.dBID);
       amp.setText(String.valueOf(amplitude));
    }
@@ -132,6 +115,4 @@ public class MainActivity extends Activity {
    Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
 
    }
-
-
 }
