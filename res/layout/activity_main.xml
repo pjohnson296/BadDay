@@ -96,7 +96,18 @@
        android:layout_below="@+id/button2"
        android:layout_centerHorizontal="true"
        android:layout_marginTop="18dp"
+       android:onClick="stopPlay"
        android:enabled="false"
        android:text="stop playing" />
+
+     <Button
+         android:id="@+id/button5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/dBID"
+         android:layout_alignRight="@+id/timeID"
+         android:enabled="false"
+         android:onClick="reset"
+         android:text="reset" />
 
 </RelativeLayout>

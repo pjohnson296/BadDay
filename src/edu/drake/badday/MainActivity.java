@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -18,11 +17,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	private TextView time, amp,text;
+	private TextView time, amp;
 	private MediaRecorder myAudioRecorder;
 	private MediaPlayer m;
 	private String outputFile = null;
-	private Button start,stop,play,stopPlay;
+	private Button start,stop,play,stopPlay,reset;
 	double amplitude;
 	int seconds1, seconds2;
 	
@@ -34,6 +33,7 @@ public class MainActivity extends Activity {
       stop = (Button)findViewById(R.id.button2);
       play = (Button)findViewById(R.id.button3);
       stopPlay = (Button)findViewById(R.id.button4);
+      reset =  (Button)findViewById(R.id.button5);
 
       stop.setEnabled(false);
       play.setEnabled(false);
@@ -46,12 +46,6 @@ public class MainActivity extends Activity {
       myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
       myAudioRecorder.setOutputFile(outputFile);
       
-      stopPlay.setOnClickListener(new OnClickListener() {
-    	          @Override
-    	          public void onClick(View v) {
-    	              stopPlay(v);
-    	          }
-    	        });
 
    }
 
@@ -138,12 +132,22 @@ public class MainActivity extends Activity {
 	                  m = null;
 	                  play.setEnabled(true);
 	                  stopPlay.setEnabled(false);
+	                  reset.setEnabled(true);
 	                  Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
 	                          Toast.LENGTH_SHORT).show();
 	              }
 	          } catch (Exception e) {
 	               // TODO Auto-generated catch block
 	               e.printStackTrace();
-	           }
+	           } 
+	        	   
+	          
 	      }
+   public void reset(View view){
+	   play.setEnabled(false);
+	   reset.setEnabled(false);
+	   start.setEnabled(true);
+	   
+	   
+   }
 }
