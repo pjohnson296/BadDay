@@ -61,4 +61,29 @@
       android:onClick="play"
       android:text="@string/play" />
 
+   <Chronometer
+       android:id="@+id/chronometer1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="19dp"
+       android:text="Chronometer" />
+
+   <TextView
+       android:id="@+id/timeID"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignRight="@+id/button2"
+       android:layout_alignTop="@+id/chronometer1"
+/>
+
+   <TextView
+       android:id="@+id/dBID"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBaseline="@+id/timeID"
+       android:layout_alignBottom="@+id/timeID"
+       android:layout_alignLeft="@+id/button3"
+       android:textSize="20sp" />
+
 </RelativeLayout>
