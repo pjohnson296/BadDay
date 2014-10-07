@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -17,10 +18,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	private TextView time, amp;
+	private TextView time, amp,text;
 	private MediaRecorder myAudioRecorder;
+	private MediaPlayer m;
 	private String outputFile = null;
-	private Button start,stop,play;
+	private Button start,stop,play,stopPlay;
 	double amplitude;
 	int seconds1, seconds2;
 	
@@ -31,6 +33,7 @@ public class MainActivity extends Activity {
       start = (Button)findViewById(R.id.button1);
       stop = (Button)findViewById(R.id.button2);
       play = (Button)findViewById(R.id.button3);
+      stopPlay = (Button)findViewById(R.id.button4);
 
       stop.setEnabled(false);
       play.setEnabled(false);
@@ -42,6 +45,14 @@ public class MainActivity extends Activity {
       myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
       myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
       myAudioRecorder.setOutputFile(outputFile);
+      
+      stopPlay.setOnClickListener(new OnClickListener() {
+    	          @Override
+    	          public void onClick(View v) {
+    	              stopPlay(v);
+    	          }
+    	        });
+
    }
 
    public void start(View view){
@@ -105,14 +116,34 @@ public class MainActivity extends Activity {
       getMenuInflater().inflate(R.menu.main, menu);
       return true;
    }
+   
    public void play(View view) throws IllegalArgumentException,   
    SecurityException, IllegalStateException, IOException{
    
-   MediaPlayer m = new MediaPlayer();
+   m = new MediaPlayer();
    m.setDataSource(outputFile);
    m.prepare();
    m.start();
+   play.setEnabled(false);
+   stopPlay.setEnabled(true);
    Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
 
    }
+   
+   public void stopPlay(View view) {
+	          try {
+	              if (m != null) {
+	                  m.stop();
+	                  m.release();
+	                  m = null;
+	                  play.setEnabled(true);
+	                  stopPlay.setEnabled(false);
+	                  Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
+	                          Toast.LENGTH_SHORT).show();
+	              }
+	          } catch (Exception e) {
+	               // TODO Auto-generated catch block
+	               e.printStackTrace();
+	           }
+	      }
 }

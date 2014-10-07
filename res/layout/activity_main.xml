@@ -28,39 +28,8 @@
       android:layout_marginTop="37dp"
       android:scaleType="fitXY"
       android:src="@drawable/presenceaudio" />
+       
    
-
-   <Button
-      android:id="@+id/button1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/imageView1"
-      android:layout_marginTop="67dp"
-      android:layout_toLeftOf="@+id/imageView1"
-      android:onClick="start"
-      android:text="@string/start" />
-
-   <Button
-      android:id="@+id/button2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignBaseline="@+id/button1"
-      android:layout_alignBottom="@+id/button1"
-      android:layout_alignRight="@+id/textView1"
-      android:layout_marginRight="40dp"
-      android:onClick="stop"
-      android:text="@string/stop" />
-
-   <Button
-      android:id="@+id/button3"
-      style="?android:attr/buttonStyleSmall"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/button2"
-      android:layout_centerHorizontal="true"
-      android:onClick="play"
-      android:text="@string/play" />
-
    <Chronometer
        android:id="@+id/chronometer1"
        android:layout_width="wrap_content"
@@ -83,7 +52,51 @@
        android:layout_height="wrap_content"
        android:layout_alignBaseline="@+id/timeID"
        android:layout_alignBottom="@+id/timeID"
-       android:layout_alignLeft="@+id/button3"
+       android:layout_toRightOf="@+id/chronometer1"
        android:textSize="20sp" />
+
+   <Button
+       android:id="@+id/button1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/chronometer1"
+       android:layout_below="@+id/imageView1"
+       android:layout_marginTop="15dp"
+       android:onClick="start"
+       android:text="@string/start" />
+
+   <Button
+       android:id="@+id/button2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBaseline="@+id/button1"
+       android:layout_alignBottom="@+id/button1"
+       android:layout_alignLeft="@+id/imageView1"
+       android:onClick="stop"
+       android:enabled= "false"
+       android:text="@string/stop" />
+   
+   
+     <Button
+         android:id="@+id/button3"
+         style="?android:attr/buttonStyleSmall"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/button4"
+         android:layout_alignBottom="@+id/button4"
+         android:layout_alignRight="@+id/button1"
+         android:enabled = "false"
+         android:onClick="play"
+         android:text="@string/play" />
+     
+     <Button
+       android:id="@+id/button4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/button2"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="18dp"
+       android:enabled="false"
+       android:text="stop playing" />
 
 </RelativeLayout>
