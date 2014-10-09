@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -21,9 +22,14 @@ public class MainActivity extends Activity {
 	private MediaRecorder myAudioRecorder;
 	private MediaPlayer m;
 	private String outputFile = null;
-	private Button start,stop,play,stopPlay,reset;
+	private Button start,stop,play,stopPlay,reset, newPage;
 	double amplitude;
 	int seconds1, seconds2;
+	
+	public void sendMessage(View view){
+		Intent intent1 = new Intent(this, SecondActivity.class);
+		startActivity(intent1);
+	}
 	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,7 @@ public class MainActivity extends Activity {
       play = (Button)findViewById(R.id.button3);
       stopPlay = (Button)findViewById(R.id.button4);
       reset =  (Button)findViewById(R.id.button5);
+      newPage =  (Button)findViewById(R.id.button6);
 
       stop.setEnabled(false);
       play.setEnabled(false);
@@ -93,6 +100,8 @@ public class MainActivity extends Activity {
       myAudioRecorder  = null;
       stop.setEnabled(false);
       play.setEnabled(true);
+      newPage.setEnabled(true);
+      
       Toast.makeText(getApplicationContext(), "Audio recorded successfully",
       Toast.LENGTH_LONG).show();
       

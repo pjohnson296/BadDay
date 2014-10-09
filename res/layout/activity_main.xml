@@ -104,10 +104,20 @@
          android:id="@+id/button5"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_above="@+id/dBID"
-         android:layout_alignRight="@+id/timeID"
+         android:layout_above="@+id/timeID"
+         android:layout_toRightOf="@+id/button4"
          android:enabled="false"
          android:onClick="reset"
          android:text="reset" />
+
+     <Button
+         android:id="@+id/button6"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/chronometer1"
+         android:layout_centerHorizontal="true"
+         android:text="Next Page" 
+         android:enabled="false"
+         android:onClick="sendMessage"/>
 
 </RelativeLayout>
