@@ -54,27 +54,6 @@
        android:layout_alignBottom="@+id/timeID"
        android:layout_toRightOf="@+id/chronometer1"
        android:textSize="20sp" />
-
-   <Button
-       android:id="@+id/startStop"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/chronometer1"
-       android:layout_below="@+id/imageView1"
-       android:layout_marginTop="15dp"
-       android:onClick="start"
-       android:text="@string/start"/>
-       
-<!--    <Button
-       android:id="@+id/button2"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/button1"
-       android:layout_alignBottom="@+id/button1"
-       android:layout_alignLeft="@+id/imageView1"
-       android:onClick="stop"
-       android:enabled= "false"
-       android:text="@string/stop" /> -->
    
    
      <Button
@@ -88,17 +67,6 @@
          android:enabled = "false"
          android:onClick="play"
          android:text="@string/play" />
-     
-     <Button
-       android:id="@+id/button4"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/button2"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="18dp"
-       android:onClick="stopPlay"
-       android:enabled="false"
-       android:text="stop playing" />
 
      <Button
          android:id="@+id/button5"
@@ -110,7 +78,7 @@
          android:onClick="reset"
          android:text="reset" />
 
-	<Button
+     <Button
          android:id="@+id/button6"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -119,5 +87,25 @@
          android:text="Next Page" 
          android:enabled="false"
          android:onClick="sendMessage"/>
+
+     <Button
+         android:id="@+id/button4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/imageView1"
+         android:layout_below="@+id/startStop"
+         android:enabled="false"
+         android:onClick="stopPlay"
+         android:text="stop playing" />
+
+     <Button
+         android:id="@+id/startStop"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/imageView1"
+         android:layout_marginTop="22dp"
+         android:layout_toRightOf="@+id/button3"
+         android:onClick="startStop"
+         android:text="Start" />
 
 </RelativeLayout>

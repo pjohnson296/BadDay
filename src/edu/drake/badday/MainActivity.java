@@ -22,12 +22,12 @@ public class MainActivity extends Activity {
 	private MediaRecorder myAudioRecorder;
 	private MediaPlayer m;
 	private String outputFile = null;
-	private Button start,stop,play,stopPlay,reset, newPage;
+	private Button play,stopPlay,reset, newPage, startStop;
 	double amplitude;
 	int seconds1, seconds2;
-	boolean startButton = true;
-	Button startStop = (Button)findViewById(R.id.startStop);
+	boolean startButton = true;             //Controls whether start or stop will be called
 
+	//When called, changes to next page
 	public void sendMessage(View view){
 		Intent intent1 = new Intent(this, SecondActivity.class);
 		startActivity(intent1);
@@ -37,15 +37,14 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		start = (Button)findViewById(R.id.button1);
-		stop = (Button)findViewById(R.id.button2);
 		play = (Button)findViewById(R.id.button3);
 		stopPlay = (Button)findViewById(R.id.button4);
-		reset =  (Button)findViewById(R.id.button5);
+		//reset =  (Button)findViewById(R.id.button5);
 		newPage =  (Button)findViewById(R.id.button6);
+		startStop = (Button)findViewById(R.id.startStop);
 
-		stop.setEnabled(false);
 		play.setEnabled(false);
+		//Sets up the output file for the recording
 		outputFile = Environment.getExternalStorageDirectory().
 				getAbsolutePath() + "/myrecording.3gp";;
 
@@ -58,16 +57,15 @@ public class MainActivity extends Activity {
 
 	}
 
+	//Starts and stops the recording
 	public void start(View view){
-
-		if (startButton == true){
-			startStop.setText("Stop");
-			startButton = false;
+			//Sets up Chronometer and calander to start timing of recording
 			((Chronometer) findViewById(R.id.chronometer1)).start();
 			Calendar startTime = Calendar.getInstance();
 			startTime.getTime();
 			seconds1 = startTime.get(Calendar.SECOND);
 
+			//Actually controls the recording of the audio
 			try {
 				myAudioRecorder.prepare();
 				myAudioRecorder.start();
@@ -78,73 +76,45 @@ public class MainActivity extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
-		}
-
-
-
-		if (startButton == false){
-			startStop.setText("Start");
-			startButton = true;
-			((Chronometer) findViewById(R.id.chronometer1)).stop();
-			Calendar stopTime = Calendar.getInstance();
-			stopTime.getTime();
-			seconds2 = stopTime.get(Calendar.SECOND);
-
-			myAudioRecorder.stop();
-			myAudioRecorder.release();
-			myAudioRecorder  = null;
-			stop.setEnabled(false);
-			play.setEnabled(true);
-			newPage.setEnabled(true);
-
-			Toast.makeText(getApplicationContext(), "Audio recorded successfully",
-					Toast.LENGTH_LONG).show();
-
-			int totalTime = seconds2 - seconds1;
-			time = (TextView) findViewById(R.id.timeID);
-			time.setText(String.valueOf(totalTime));
-			amplitude = getAmplitude();
-			amp = (TextView) findViewById(R.id.dBID);
-			amp.setText(String.valueOf(amplitude));
-
-		}  
+			Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();  
 	}
 
-	public double getAmplitude() { 
-		if (myAudioRecorder != null){
-			return myAudioRecorder.getMaxAmplitude();
-		}  
-		else { 
-			return 0;
-		}
-	}
+	//public double getAmplitude() { 
+	//	if (myAudioRecorder != null){
+	//		return myAudioRecorder.getMaxAmplitude();
+	//	}  
+	//	else { 
+	//		return 0;
+	//	}
+	//}
 
 
-
-	//   public void stop(View view){
-	//	   ((Chronometer) findViewById(R.id.chronometer1)).stop();
-	//	   Calendar stopTime = Calendar.getInstance();
-	//	   stopTime.getTime();
-	//	   seconds2 = stopTime.get(Calendar.SECOND);
-	//
-	//      myAudioRecorder.stop();
-	//      myAudioRecorder.release();
-	//      myAudioRecorder  = null;
-	//      stop.setEnabled(false);
-	//      play.setEnabled(true);
-	//      newPage.setEnabled(true);
-	//      
-	//      Toast.makeText(getApplicationContext(), "Audio recorded successfully",
-	//      Toast.LENGTH_LONG).show();
-	//      
-	//      int totalTime = seconds2 - seconds1;
-	//      time = (TextView) findViewById(R.id.timeID);
-	//      time.setText(String.valueOf(totalTime));
+	//stops the recording
+	   public void stop(View view){
+		   //stops the timing of the recording
+		   ((Chronometer) findViewById(R.id.chronometer1)).stop();
+		   Calendar stopTime = Calendar.getInstance();
+		   stopTime.getTime();
+		   seconds2 = stopTime.get(Calendar.SECOND);
+	
+	      myAudioRecorder.stop();
+	      myAudioRecorder.release();
+	      myAudioRecorder  = null;
+	      //stop.setEnabled(false);
+	      play.setEnabled(true);
+	      newPage.setEnabled(true);
+	      
+	      Toast.makeText(getApplicationContext(), "Audio recorded successfully",
+	      Toast.LENGTH_LONG).show();
+	      
+	      //calculates and prints out the time of the recording
+	      int totalTime = seconds2 - seconds1;
+	      time = (TextView) findViewById(R.id.timeID);
+	      time.setText(String.valueOf(totalTime));
 	//      amplitude = getAmplitude();
 	//      amp = (TextView) findViewById(R.id.dBID);
 	//      amp.setText(String.valueOf(amplitude));
-	//   }
+	   }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -153,6 +123,7 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	//plays the recording when called
 	public void play(View view) throws IllegalArgumentException,   
 	SecurityException, IllegalStateException, IOException{
 
@@ -166,6 +137,7 @@ public class MainActivity extends Activity {
 
 	}
 
+	//Allows for user to stop the playback of the recording
 	public void stopPlay(View view) {
 		try {
 			if (m != null) {
@@ -174,7 +146,7 @@ public class MainActivity extends Activity {
 				m = null;
 				play.setEnabled(true);
 				stopPlay.setEnabled(false);
-				reset.setEnabled(true);
+				// reset.setEnabled(true);              //enables the reset of the recording, we don't have that yet
 				Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
 						Toast.LENGTH_SHORT).show();
 			}
@@ -185,11 +157,25 @@ public class MainActivity extends Activity {
 
 
 	}
-	public void reset(View view){
-		play.setEnabled(false);
-		reset.setEnabled(false);
-		start.setEnabled(true);
+	//starts and stops the recording by calling the start and stop methods
+	public void startStop(View view){
 
+		if (startButton == true){
+			start(view);
+			startStop.setText("Stop");
+			startButton = false;
 
+		}
+		else if (startButton == false){
+			stop(view);
+			//sendMessage(view);                   //sends user to next screen after recording is finished
+			startButton = true;
+			startStop.setEnabled(false);
+		}  
 	}
+	//public void reset(View view){
+	//	play.setEnabled(false);
+	//	reset.setEnabled(false);
+		
+//	}
 }
