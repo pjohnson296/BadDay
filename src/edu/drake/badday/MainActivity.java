@@ -24,13 +24,14 @@ public class MainActivity extends Activity {
 	private String outputFile = null;
 	private Button reset,startStop;
 	double amplitude;
-	int seconds1, seconds2;
+	int seconds1, seconds2, totalTime;
 	boolean startButton = true;             //Controls whether start or stop will be called
 
 	//When called, changes to next page
 	public void sendMessage(View view){
 		Intent intent = new Intent(this, SecondActivity.class);
-		intent.putExtra("path", outputFile);
+		intent.putExtra("path", outputFile);                         //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent.putExtra("time", totalTime);
 		startActivity(intent);
 	}
 
@@ -102,7 +103,7 @@ public class MainActivity extends Activity {
 	      Toast.LENGTH_LONG).show();
 	      
 	      //calculates and prints out the time of the recording
-	      int totalTime = seconds2 - seconds1;
+	      totalTime = seconds2 - seconds1;
 	      time = (TextView) findViewById(R.id.timeID);
 	      time.setText(String.valueOf(totalTime));
 	//      amplitude = getAmplitude();

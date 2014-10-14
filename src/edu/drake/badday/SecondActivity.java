@@ -16,17 +16,20 @@ public class SecondActivity extends Activity {
 
 	private String path;
 	private MediaPlayer m;
-	//private boolean playback = true;
+	//private boolean playback = true;                   \\only used for when I was trying to put everything on one button
 	private Button play,stopPlaying, startStopPlaying;
+	int totalTime;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		play = (Button)findViewById(R.id.play);
 		stopPlaying = (Button)findViewById(R.id.stopPlaying);
-		startStopPlaying = (Button)findViewById(R.id.startStopPlaying);
-		Intent intent = getIntent();
-		path = intent.getExtras().getString("path");
+		startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
+		Intent intent = getIntent();                                                       //These two lines give a good idea
+		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
+		totalTime = intent.getExtras().getInt("time");
+		System.out.println("Time of recording = " + totalTime + " seconds");
 		setContentView(R.layout.activity_second);
 	}
 
