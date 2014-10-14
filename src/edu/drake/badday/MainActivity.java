@@ -22,28 +22,25 @@ public class MainActivity extends Activity {
 	private MediaRecorder myAudioRecorder;
 	private MediaPlayer m;
 	private String outputFile = null;
-	private Button play,stopPlay,reset, newPage, startStop;
+	private Button reset,startStop;
 	double amplitude;
 	int seconds1, seconds2;
 	boolean startButton = true;             //Controls whether start or stop will be called
 
 	//When called, changes to next page
 	public void sendMessage(View view){
-		Intent intent1 = new Intent(this, SecondActivity.class);
-		startActivity(intent1);
+		Intent intent = new Intent(this, SecondActivity.class);
+		intent.putExtra("path", outputFile);
+		startActivity(intent);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		play = (Button)findViewById(R.id.button3);
-		stopPlay = (Button)findViewById(R.id.button4);
 		//reset =  (Button)findViewById(R.id.button5);
-		newPage =  (Button)findViewById(R.id.button6);
 		startStop = (Button)findViewById(R.id.startStop);
 
-		play.setEnabled(false);
 		//Sets up the output file for the recording
 		outputFile = Environment.getExternalStorageDirectory().
 				getAbsolutePath() + "/myrecording.3gp";;
@@ -100,9 +97,6 @@ public class MainActivity extends Activity {
 	      myAudioRecorder.stop();
 	      myAudioRecorder.release();
 	      myAudioRecorder  = null;
-	      //stop.setEnabled(false);
-	      play.setEnabled(true);
-	      newPage.setEnabled(true);
 	      
 	      Toast.makeText(getApplicationContext(), "Audio recorded successfully",
 	      Toast.LENGTH_LONG).show();
@@ -123,40 +117,6 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	//plays the recording when called
-	public void play(View view) throws IllegalArgumentException,   
-	SecurityException, IllegalStateException, IOException{
-
-		m = new MediaPlayer();
-		m.setDataSource(outputFile);
-		m.prepare();
-		m.start();
-		play.setEnabled(false);
-		stopPlay.setEnabled(true);
-		Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
-
-	}
-
-	//Allows for user to stop the playback of the recording
-	public void stopPlay(View view) {
-		try {
-			if (m != null) {
-				m.stop();
-				m.release();
-				m = null;
-				play.setEnabled(true);
-				stopPlay.setEnabled(false);
-				// reset.setEnabled(true);              //enables the reset of the recording, we don't have that yet
-				Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
-						Toast.LENGTH_SHORT).show();
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-
-	}
 	//starts and stops the recording by calling the start and stop methods
 	public void startStop(View view){
 
@@ -164,14 +124,14 @@ public class MainActivity extends Activity {
 			start(view);
 			startStop.setText("Stop");
 			startButton = false;
-
 		}
+		
 		else if (startButton == false){
 			stop(view);
-			//sendMessage(view);                   //sends user to next screen after recording is finished
+			sendMessage(view);                   //sends user to next screen after recording is finished
 			startButton = true;
 			startStop.setEnabled(false);
-		}  
+		 } 
 	}
 	//public void reset(View view){
 	//	play.setEnabled(false);

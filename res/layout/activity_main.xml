@@ -43,8 +43,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_alignRight="@+id/button2"
-       android:layout_alignTop="@+id/chronometer1"
-/>
+       android:layout_alignTop="@+id/chronometer1" />
 
    <TextView
        android:id="@+id/dBID"
@@ -57,18 +56,6 @@
    
    
      <Button
-         android:id="@+id/button3"
-         style="?android:attr/buttonStyleSmall"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBaseline="@+id/button4"
-         android:layout_alignBottom="@+id/button4"
-         android:layout_alignRight="@+id/button1"
-         android:enabled = "false"
-         android:onClick="play"
-         android:text="@string/play" />
-
-     <Button
          android:id="@+id/button5"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -79,33 +66,13 @@
          android:text="reset" />
 
      <Button
-         android:id="@+id/button6"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/chronometer1"
-         android:layout_centerHorizontal="true"
-         android:text="Next Page" 
-         android:enabled="false"
-         android:onClick="sendMessage"/>
-
-     <Button
-         android:id="@+id/button4"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/imageView1"
-         android:layout_below="@+id/startStop"
-         android:enabled="false"
-         android:onClick="stopPlay"
-         android:text="stop playing" />
-
-     <Button
          android:id="@+id/startStop"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_below="@+id/imageView1"
-         android:layout_marginTop="22dp"
-         android:layout_toRightOf="@+id/button3"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="30dp"
          android:onClick="startStop"
          android:text="Start" />
-
+    
 </RelativeLayout>

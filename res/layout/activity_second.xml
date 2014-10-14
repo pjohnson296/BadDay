@@ -8,9 +8,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.drake.badday.SecondActivity" >
 
-    <TextView
+
+    <Button
+        android:id="@+id/startStopPlaying"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="107dp"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:onClick="startStopPlaying"
+        android:text="Play" 
+        android:enabled = "false"/>
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="101dp"
+        android:onClick = "play"
+        android:text="play" />
+
+    <Button
+        android:id="@+id/stopPlaying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/play"
+        android:layout_alignBottom="@+id/play"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="33dp"
+        android:onClick="stopPlay"
+        android:text="Stop Playing" />
 
 </RelativeLayout>
