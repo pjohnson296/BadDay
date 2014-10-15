@@ -61,7 +61,7 @@
          android:layout_height="wrap_content"
          android:layout_above="@+id/timeID"
          android:layout_toRightOf="@+id/button4"
-         android:enabled="false"
+         android:enabled="true"
          android:onClick="reset"
          android:text="reset" />
 

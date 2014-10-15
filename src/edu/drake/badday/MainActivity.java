@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//reset =  (Button)findViewById(R.id.button5);
+		reset =  (Button)findViewById(R.id.button5);
 		startStop = (Button)findViewById(R.id.startStop);
 
 		//Sets up the output file for the recording
@@ -132,7 +132,9 @@ public class MainActivity extends Activity {
 			stop(view);
 			sendMessage(view);                   //sends user to next screen after recording is finished
 			startButton = true;
+			startStop.setText("Start");
 			startStop.setEnabled(false);
+			
 		 } 
 	}
 	//public void reset(View view){
@@ -143,26 +145,33 @@ public class MainActivity extends Activity {
 	public void reset (View view) throws IOException
 	{
 	   isRecording = true;
+	   outputFile = null;
 	   startStop.setEnabled(true);
 	   reset.setEnabled(false);
 	   
-	 //Sets up the output file for the recording
-	 		outputFile = Environment.getExternalStorageDirectory().
-	 				getAbsolutePath() + "/myrecording.3gp";;
-	   try {
-	   myAudioRecorder = new MediaRecorder();
-		myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-		myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-		myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-		myAudioRecorder.setOutputFile(outputFile);
-		myAudioRecorder.prepare();
-	   } catch (Exception e) {
-		   e.printStackTrace();
-	   }
-        startButton=true;
-	    startStop(view);
+	   outputFile = Environment.getExternalStorageDirectory().
+				getAbsolutePath() + "/myrecording.3gp";;
 
-	  
-	   		
+				myAudioRecorder = new MediaRecorder();
+				myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+				myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+				myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+				myAudioRecorder.setOutputFile(outputFile);
+	 //Sets up the output file for the recording
+	 		//outputFile = Environment.getExternalStorageDirectory().
+	 		//		getAbsolutePath() + "/myrecording.3gp";;
+	   //try {
+	   //myAudioRecorder = new MediaRecorder();
+		//myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+		//myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+		//myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+		//myAudioRecorder.setOutputFile(outputFile);
+		//myAudioRecorder.prepare();
+	   //} catch (Exception e) {
+		//   e.printStackTrace();
+	   //}
+        //startButton=true;
+	    //startStop(view);
+	   	//	System.out.println(outputFile);
 	}
 }
