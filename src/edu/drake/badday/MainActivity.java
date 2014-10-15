@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 	private MediaRecorder myAudioRecorder;
 	private MediaPlayer m;
 	private String outputFile = null;
+	private boolean isRecording = true;
 	private Button reset,startStop;
 	double amplitude;
 	int seconds1, seconds2, totalTime;
@@ -139,4 +140,29 @@ public class MainActivity extends Activity {
 	//	reset.setEnabled(false);
 		
 //	}
+	public void reset (View view) throws IOException
+	{
+	   isRecording = true;
+	   startStop.setEnabled(true);
+	   reset.setEnabled(false);
+	   
+	 //Sets up the output file for the recording
+	 		outputFile = Environment.getExternalStorageDirectory().
+	 				getAbsolutePath() + "/myrecording.3gp";;
+	   try {
+	   myAudioRecorder = new MediaRecorder();
+		myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+		myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+		myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+		myAudioRecorder.setOutputFile(outputFile);
+		myAudioRecorder.prepare();
+	   } catch (Exception e) {
+		   e.printStackTrace();
+	   }
+        startButton=true;
+	    startStop(view);
+
+	  
+	   		
+	}
 }
