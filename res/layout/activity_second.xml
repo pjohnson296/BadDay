@@ -43,13 +43,4 @@
         android:onClick="stopPlay"
         android:text="Stop Playing" />
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/startStopPlaying"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="reset" />
-
 </RelativeLayout>

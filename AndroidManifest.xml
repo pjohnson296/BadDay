@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
 
     <application
         android:allowBackup="true"
@@ -32,14 +33,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.MainActivity" />
-        </activity>
-        <activity
-            android:name=".TitlePage"
-            android:label="@string/title_activity_title_page"
-            android:parentActivityName="com.example.practicerecording.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.practicerecording.MainActivity" />
         </activity>
     </application>
 
