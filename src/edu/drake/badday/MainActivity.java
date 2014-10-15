@@ -126,11 +126,12 @@ public class MainActivity extends Activity {
 			start(view);
 			startStop.setText("Stop");
 			startButton = false;
+			reset.setEnabled(true);
 		}
 		
 		else if (startButton == false){
 			stop(view);
-			sendMessage(view);                   //sends user to next screen after recording is finished
+			//sendMessage(view);                   //sends user to next screen after recording is finished
 			startButton = true;
 			startStop.setText("Start");
 			startStop.setEnabled(false);
