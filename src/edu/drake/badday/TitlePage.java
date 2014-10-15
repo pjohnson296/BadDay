@@ -1,12 +1,25 @@
 package edu.drake.badday;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Chronometer;
 
 public class TitlePage extends Activity {
 
+	int seconds1, seconds2, totalTime;
+	
+	public void sendMessage(View view){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+	}
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,4 +44,19 @@ public class TitlePage extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	//@Override
+	/*public void switchScreen(View view){
+		((Chronometer) findViewById(R.id.chronometer1)).start();
+		Calendar startTime = Calendar.getInstance();
+		startTime.getTime();
+		seconds1 = startTime.get(Calendar.SECOND);
+		seconds2 = 0;
+		
+		while(totalTime < 3){
+			Calendar stopTime = Calendar.getInstance();
+			seconds2 = stopTime.get(Calendar.SECOND);
+			totalTime = seconds2 - seconds1;
+		}
+		sendMessage(view);
+	}*/
 }
