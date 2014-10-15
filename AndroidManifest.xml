@@ -10,7 +10,6 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    
 
     <application
         android:allowBackup="true"
@@ -28,8 +27,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" 
-            android:parentActivityName=".TitlePage">
+            android:label="@string/app_name"
+            android:parentActivityName=".TitlePage" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.TitlePage" />
@@ -37,6 +36,46 @@
         <activity
             android:name=".SecondActivity"
             android:label="@string/title_activity_second"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PostRant"
+            android:label="@string/title_activity_post_rant"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ShareScreen"
+            android:label="@string/title_activity_share_screen"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ArchivePage"
+            android:label="@string/title_activity_archive_page"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".WhatNow"
+            android:label="@string/title_activity_what_now"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FoodResults"
+            android:label="@string/title_activity_food_results"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

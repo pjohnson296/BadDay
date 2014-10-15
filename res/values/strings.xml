@@ -8,5 +8,10 @@
     <string name="stop">stop</string>
     <string name="play">play</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_post_rant">PostRant</string>
+    <string name="title_activity_share_screen">ShareScreen</string>
+    <string name="title_activity_archive_page">ArchivePage</string>
+    <string name="title_activity_what_now">WhatNow</string>
+    <string name="title_activity_food_results">FoodResults</string>
 
 </resources>
