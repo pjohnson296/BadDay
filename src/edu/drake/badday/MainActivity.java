@@ -3,6 +3,7 @@ package edu.drake.badday;
 import java.io.IOException;
 import java.util.Calendar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -11,8 +12,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +29,9 @@ public class MainActivity extends Activity {
 	private Button reset,startStop;
 	double amplitude;
 	int seconds1, seconds2, totalTime;
-	boolean startButton = true;             //Controls whether start or stop will be called
+	ImageButton button;
+	boolean startButton = true;
+	//Controls whether start or stop will be called
 
 	//When called, changes to next page
 	public void sendMessage(View view){
@@ -40,9 +45,11 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		reset =  (Button)findViewById(R.id.button5);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+		//reset =  (Button)findViewById(R.id.button5);
 		startStop = (Button)findViewById(R.id.startStop);
-
+		
 		//Sets up the output file for the recording
 		outputFile = Environment.getExternalStorageDirectory().
 				getAbsolutePath() + "/myrecording.3gp";;
@@ -52,12 +59,20 @@ public class MainActivity extends Activity {
 				myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
 				myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
 				myAudioRecorder.setOutputFile(outputFile);
-
-
-	}
+}
+	
+	
+	//startStop.setOnClickListener(new OnClickListener() {
+		 public void onClick(View v) {
+			   if(v == startStop) {
+			     startStop.setBackgroundResource(R.drawable.stopbutton);
+			   }
+			}
+		 
 
 	//Starts and stops the recording
 	public void start(View view){
+		onClick(view);
 			//Sets up Chronometer and calander to start timing of recording
 			((Chronometer) findViewById(R.id.chronometer1)).start();
 			Calendar startTime = Calendar.getInstance();
@@ -88,9 +103,18 @@ public class MainActivity extends Activity {
 	//}
 
 
+	//startStop.setOnClickListener(new OnClickListener() {
+	 public void onStop(View v) {
+		   if(v == startStop) {
+		     startStop.setBackgroundResource(R.drawable.recordbutton);
+		   }
+		}
+	 
+	
 	//stops the recording
 	   public void stop(View view){
 		   //stops the timing of the recording
+		  onStop(view);
 		   ((Chronometer) findViewById(R.id.chronometer1)).stop();
 		   Calendar stopTime = Calendar.getInstance();
 		   stopTime.getTime();
@@ -124,7 +148,7 @@ public class MainActivity extends Activity {
 
 		if (startButton == true){
 			start(view);
-			startStop.setText("Stop");
+			//startStop.setText("Stop");
 			startButton = false;
 		}
 		
@@ -132,7 +156,7 @@ public class MainActivity extends Activity {
 			stop(view);
 			sendMessage(view);                   //sends user to next screen after recording is finished
 			startButton = true;
-			startStop.setText("Start");
+			//startStop.setText("Start");
 			startStop.setEnabled(false);
 			
 		 } 
@@ -142,12 +166,12 @@ public class MainActivity extends Activity {
 	//	reset.setEnabled(false);
 		
 //	}
-	public void reset (View view) throws IOException
+	/*public void reset (View view) throws IOException
 	{
 	   isRecording = true;
 	   outputFile = null;
 	   startStop.setEnabled(true);
-	   reset.setEnabled(false);
+	   reset.setEnabled(true);
 	   
 	   outputFile = Environment.getExternalStorageDirectory().
 				getAbsolutePath() + "/myrecording.3gp";;
@@ -173,5 +197,5 @@ public class MainActivity extends Activity {
         //startButton=true;
 	    //startStop(view);
 	   	//	System.out.println(outputFile);
-	}
+	}*/
 }
