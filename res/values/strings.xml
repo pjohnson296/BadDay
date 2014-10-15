@@ -8,5 +8,6 @@
     <string name="stop">stop</string>
     <string name="play">play</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_title_page">TitlePage</string>
 
 </resources>
