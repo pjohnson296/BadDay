@@ -52,7 +52,14 @@ public class SecondActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	
+	public void openShare(View view){
+		Intent intent = new Intent(this, ShareScreen.class);
+		startActivity(intent);
+	}
+	public void openOptions(View view){
+		Intent intent = new Intent(this, Options.class);
+		startActivity(intent);
+	}
 	//Allows for the playing of the recording
 	public void play(View view) throws IllegalArgumentException,   
 	SecurityException, IllegalStateException, IOException{
