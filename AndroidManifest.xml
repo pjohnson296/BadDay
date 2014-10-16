@@ -42,38 +42,6 @@
                 android:value="edu.drake.badday.MainActivity" />
         </activity>
 
-        <activity
-            android:name=".ShareScreen"
-            android:label="@string/title_activity_share_screen"
-            android:parentActivityName=".SecondActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.drake.badday.SecondActivity" />
-        </activity>
-        <activity
-            android:name=".ArchivePage"
-            android:label="@string/title_activity_archive_page"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.drake.badday.MainActivity" />
-        </activity>
-        <activity
-            android:name=".WhatNow"
-            android:label="@string/title_activity_what_now"
-            android:parentActivityName=".SecondActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.drake.badday.SecondActivity" />
-        </activity>
-        <activity
-            android:name=".FoodResults"
-            android:label="@string/title_activity_food_results"
-            android:parentActivityName=".WhatNow" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.drake.badday.WhatNow" />
-        </activity>
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.drake.badday.SecondActivity" 
-    android:background="@drawable/postRant">
+    android:background="@drawable/postrant">
 
     <Button
         android:id="@+id/startStopPlaying"
