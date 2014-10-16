@@ -24,7 +24,12 @@
        android:layout_height="wrap_content"
        android:layout_alignParentBottom="true"
        android:layout_marginBottom="19dp"
-       android:text="Chronometer" />
+       android:fontFamily="Roboto"
+       android:text="Chronometer"
+       android:textColor="@android:color/white"
+       android:textSize="40sp"
+       android:textStyle="@android:color/white"
+       android:typeface="sans" />
 
    <TextView
        android:id="@+id/timeID"
