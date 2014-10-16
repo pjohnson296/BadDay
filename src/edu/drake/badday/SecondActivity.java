@@ -2,6 +2,7 @@ package edu.drake.badday;
 
 import java.io.IOException;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -23,6 +24,9 @@ public class SecondActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_second);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 		play = (Button)findViewById(R.id.play);
 		stopPlaying = (Button)findViewById(R.id.stopPlaying);
 		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
@@ -30,7 +34,7 @@ public class SecondActivity extends Activity {
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
 		System.out.println("Time of recording = " + totalTime + " seconds");
-		setContentView(R.layout.activity_second);
+		
 	}
 
 	@Override
