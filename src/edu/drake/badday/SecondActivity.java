@@ -25,7 +25,7 @@ public class SecondActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		play = (Button)findViewById(R.id.play);
 		stopPlaying = (Button)findViewById(R.id.stopPlaying);
-		startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
+		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
 		Intent intent = getIntent();                                                       //These two lines give a good idea
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
@@ -51,6 +51,7 @@ public class SecondActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 	
 	//Allows for the playing of the recording
 	public void play(View view) throws IllegalArgumentException,   

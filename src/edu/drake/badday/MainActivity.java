@@ -60,7 +60,14 @@ public class MainActivity extends Activity {
 				myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
 				myAudioRecorder.setOutputFile(outputFile);
 }
-	
+	public void openShare(View view){
+		Intent intent = new Intent(this, ShareScreen.class);
+		startActivity(intent);
+	}
+	public void openOptions(View view){
+		Intent intent = new Intent(this, Options.class);
+		startActivity(intent);
+	}
 	
 	//startStop.setOnClickListener(new OnClickListener() {
 		 public void onClick(View v) {
