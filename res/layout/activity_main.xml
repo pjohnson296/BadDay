@@ -9,7 +9,14 @@
    android:paddingTop="@dimen/activity_vertical_margin"
    android:background="@drawable/rant2"
    tools:context=".MainActivity" >
-   
+    <Button
+        android:id="@+id/archiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Archive" 
+        android:onClick="openArchive"/>
    
    <Chronometer
        android:id="@+id/chronometer1"

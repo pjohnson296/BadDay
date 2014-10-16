@@ -3,6 +3,7 @@ package edu.drake.badday;
 import java.io.IOException;
 import java.util.Calendar;
 
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -149,7 +151,29 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		// Handle action bar item clicks here. The action bar will
+//		// automatically handle clicks on the Home/Up button, so long
+//		// as you specify a parent activity in AndroidManifest.xml.
+//		int id = item.getItemId();
+//		switch (id) {
+//		case R.id.action_archive:
+//			openArchive();
+//			return true;
+//		
+//		default:
+//		}
+//		//        if (id == R.id.action_settings) {
+//		//            return true;
+//		//        }
+//		return super.onOptionsItemSelected(item);
+//	}
+	
+	public void openArchive(View view){
+		Intent intent = new Intent(this, Archive.class);
+		startActivity(intent);
+	}
 	//starts and stops the recording by calling the start and stop methods
 	public void startStop(View view){
 

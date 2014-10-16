@@ -22,6 +22,14 @@
         android:text="Play" 
         android:enabled = "false"/>
  -->
+     <Button
+        android:id="@+id/archiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Archive" 
+        android:onClick="openArchive"/>
     <Button
         android:id="@+id/play"
         android:layout_width="wrap_content"
@@ -48,10 +56,9 @@
         android:id="@+id/getOverIt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/stopPlaying"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="54dp"
-        android:layout_marginLeft="42dp"
-        android:layout_toRightOf="@+id/play"
+        android:layout_marginBottom="102dp"
         android:onClick="openOptions"
         android:text="Get Over It!" />
 
@@ -59,9 +66,10 @@
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/getOverIt"
-        android:layout_marginRight="34dp"
-        android:layout_toLeftOf="@+id/stopPlaying"
+        android:layout_alignBaseline="@+id/getOverIt"
+        android:layout_alignBottom="@+id/getOverIt"
+        android:layout_alignLeft="@+id/play"
+        android:layout_marginLeft="37dp"
         android:onClick="openShare"
         android:text="Share" />
 

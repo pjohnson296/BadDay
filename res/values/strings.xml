@@ -14,5 +14,7 @@
     <string name="title_activity_what_now">WhatNow</string>
     <string name="title_activity_food_results">FoodResults</string>
     <string name="title_activity_options">Options</string>
+    <string name="title_activity_eat">Eat</string>
+    <string name="title_activity_archive">Archive</string>
 
 </resources>

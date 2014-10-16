@@ -57,6 +57,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.SecondActivity" />
         </activity>
+        <activity
+            android:name=".Eat"
+            android:label="@string/title_activity_eat"
+            android:parentActivityName=".Options" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.Options" />
+        </activity>
+        <activity
+            android:name=".Archive"
+            android:label="@string/title_activity_archive" >
+        </activity>
     </application>
 
 </manifest>

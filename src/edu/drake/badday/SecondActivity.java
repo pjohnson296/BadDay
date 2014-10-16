@@ -60,6 +60,10 @@ public class SecondActivity extends Activity {
 		Intent intent = new Intent(this, Options.class);
 		startActivity(intent);
 	}
+	public void openArchive(View view){
+		Intent intent = new Intent(this, Archive.class);
+		startActivity(intent);
+	}
 	//Allows for the playing of the recording
 	public void play(View view) throws IllegalArgumentException,   
 	SecurityException, IllegalStateException, IOException{
