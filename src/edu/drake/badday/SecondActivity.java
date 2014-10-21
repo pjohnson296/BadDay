@@ -2,6 +2,7 @@ package edu.drake.badday;
 
 import java.io.IOException;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -18,11 +19,15 @@ public class SecondActivity extends Activity {
 	private MediaPlayer m;
 	//private boolean playback = true;                   \\only used for when I was trying to put everything on one button
 	private Button play,stopPlaying, startStopPlaying;
+	//boolean startbutton=true;
 	int totalTime;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_second);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 		play = (Button)findViewById(R.id.play);
 		stopPlaying = (Button)findViewById(R.id.stopPlaying);
 		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
@@ -30,7 +35,7 @@ public class SecondActivity extends Activity {
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
 		System.out.println("Time of recording = " + totalTime + " seconds");
-		setContentView(R.layout.activity_second);
+		
 	}
 
 	@Override
@@ -54,6 +59,10 @@ public class SecondActivity extends Activity {
 	
 	public void openShare(View view){
 		Intent intent = new Intent(this, ShareScreen.class);
+		startActivity(intent);
+	}
+	public void deleterant(View view){
+		Intent intent = new Intent(this, DeleteRant.class);
 		startActivity(intent);
 	}
 	public void openOptions(View view){
@@ -111,4 +120,22 @@ public class SecondActivity extends Activity {
 		//		startStopPlaying.setText("Play");
 		//	 } 
 		//}
+		/*public void playstop(View view)throws IllegalArgumentException,   
+		SecurityException, IllegalStateException, IOException{
+
+			if (startbutton == true){
+				play(view);
+				//startStop.setText("Stop");
+				startbutton = false;
+			}
+			
+			else if (startbutton == false){
+				stopPlay(view);
+				//sendMessage(view);                   //sends user to next screen after recording is finished
+				startbutton = true;
+				//startStop.setText("Start");
+				play.setEnabled(false);
+				
+			 } 
+		}*/
 }

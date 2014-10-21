@@ -16,5 +16,6 @@
     <string name="title_activity_options">Options</string>
     <string name="title_activity_eat">Eat</string>
     <string name="title_activity_archive">Archive</string>
+    <string name="title_activity_delete_rant">DeleteRant</string>
 
 </resources>

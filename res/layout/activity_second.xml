@@ -2,12 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/postrant"
+    android:background="@drawable/showscale"
     tools:context="edu.drake.badday.SecondActivity" >
-<!--     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" -->
     
 
 <!--     <Button
@@ -23,54 +19,60 @@
         android:enabled = "false"/>
  -->
      <Button
-        android:id="@+id/archiveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Archive" 
-        android:onClick="openArchive"/>
+         android:id="@+id/archiveButton"
+         android:layout_width="70dp"
+         android:layout_height="65dp"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="12dp"
+         android:layout_marginLeft="498dp"
+         android:background="@null"
+         android:onClick="openArchive"/>
     <Button
         android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="101dp"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="411dp"
         android:onClick = "play"
-        android:text="play" />
+        android:background="@null" />
 
     <Button
         android:id="@+id/stopPlaying"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/play"
-        android:layout_alignBottom="@+id/play"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="33dp"
+       android:layout_width="95dp"
+        android:layout_height="83dp"
+       android:layout_marginTop="405dp"
+        android:layout_marginLeft="350dp"
         android:onClick="stopPlay"
-        android:text="Stop Playing" />
+        android:background="@drawable/stopp" />
 
     <Button
         android:id="@+id/getOverIt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/stopPlaying"
+        android:layout_width="390dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="102dp"
+         android:layout_marginLeft="114dp"
+        android:layout_marginBottom="145dp"
         android:onClick="openOptions"
-        android:text="Get Over It!" />
+          android:background="@null"/>
 
     <Button
         android:id="@+id/share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/getOverIt"
+        android:layout_width="188dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="113dp"
+        android:layout_marginLeft="114dp"
         android:layout_alignBottom="@+id/getOverIt"
-        android:layout_alignLeft="@+id/play"
-        android:layout_marginLeft="37dp"
         android:onClick="openShare"
-        android:text="Share" />
+        android:background="@null" />
+    
+     <Button
+        android:id="@+id/delete"
+        android:layout_width="188dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="113dp"
+        android:layout_marginLeft="314dp"
+        android:layout_alignBottom="@+id/getOverIt"
+        android:onClick="deleterant"
+        android:background="@null" />
 
 </RelativeLayout>

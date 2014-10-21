@@ -1,5 +1,6 @@
 package edu.drake.badday;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ public class Eat extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eat);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	}
 
 	@Override

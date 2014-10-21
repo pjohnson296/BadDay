@@ -2,6 +2,7 @@ package edu.drake.badday;
 
 import java.util.Calendar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class TitlePage extends Activity {
 	public void sendMessage(View view){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
+		
 	}
 	
 	
@@ -24,6 +26,8 @@ public class TitlePage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_title_page);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	}
 
 	@Override
