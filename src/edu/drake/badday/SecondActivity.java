@@ -1,7 +1,6 @@
 package edu.drake.badday;
 
 import java.io.IOException;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class SecondActivity extends Activity {
@@ -21,6 +21,7 @@ public class SecondActivity extends Activity {
 	private Button play,stopPlaying, startStopPlaying;
 	//boolean startbutton=true;
 	int totalTime;
+	ImageButton scale;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,23 @@ public class SecondActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		play = (Button)findViewById(R.id.play);
+		scale = (ImageButton)findViewById(R.id.imageButton1);								//Sets up our scale image
 		stopPlaying = (Button)findViewById(R.id.stopPlaying);
 		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
 		Intent intent = getIntent();                                                       //These two lines give a good idea
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
 		System.out.println("Time of recording = " + totalTime + " seconds");
+		if (totalTime < 5){																	// v These lines set the scale to whatever image is appropriate v
+			System.out.println("very short, eh?");
+			scale.setBackgroundResource(R.drawable.blue);
+		}
+		else if(totalTime> 5 && totalTime < 10){
+			scale.setBackgroundResource(R.drawable.cloudandblue);
+		}
+		else{
+			scale.setBackgroundResource(R.drawable.childishfrank);
+		}
 		
 	}
 
