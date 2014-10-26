@@ -1,33 +1,38 @@
 package edu.drake.badday;
 
-import java.util.Calendar;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Chronometer;
 
 public class TitlePage extends Activity {
 
 	int seconds1, seconds2, totalTime;
+	int DELAY=2000;
 	
 	public void sendMessage(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
-		
-	}
-	
-	
+		Intent intent = new Intent(TitlePage.this, MainActivity.class);
+		startActivity(intent);}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_title_page);
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
+		 Handler handler = new Handler();
+		    //handler.postDelayed(new Runnable() { 
+			new Handler().postDelayed(new Runnable(){
+			public void run(){
+				Intent intent = new Intent(TitlePage.this, MainActivity.class);
+				startActivity(intent);
+				finish();
+				}
+		 },DELAY);
 	}
 
 	@Override
