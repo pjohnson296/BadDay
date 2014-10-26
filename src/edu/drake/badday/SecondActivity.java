@@ -108,7 +108,7 @@ public class SecondActivity extends Activity {
 					Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
 							Toast.LENGTH_SHORT).show();
 					playback = false;
-					play.setBackgroundResource(R.drawable.play);
+					play.setBackground(null);
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

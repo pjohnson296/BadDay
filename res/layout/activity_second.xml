@@ -29,12 +29,12 @@
          android:onClick="openArchive"/>
     <Button
         android:id="@+id/play"
-        android:layout_width="70dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="275dp"
-        android:layout_marginTop="411dp"
+        android:layout_width="99dp"
+        android:layout_height="86dp"
+        android:layout_marginLeft="257dp"
+        android:layout_marginTop="403dp"
         android:onClick = "play"
-        android:background="@drawable/play" />
+        android:background="@null" />
 
  <!--   <Button
         android:id="@+id/stopPlaying"
