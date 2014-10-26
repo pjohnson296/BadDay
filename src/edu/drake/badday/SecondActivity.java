@@ -1,6 +1,7 @@
 package edu.drake.badday;
 
 import java.io.IOException;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,9 +18,8 @@ public class SecondActivity extends Activity {
 
 	private String path;
 	private MediaPlayer m;
-	//private boolean playback = true;                   \\only used for when I was trying to put everything on one button
+	private boolean playback = false;                   //only used for when I was trying to put everything on one button
 	private Button play,stopPlaying, startStopPlaying;
-	//boolean startbutton=true;
 	int totalTime;
 	ImageButton scale;
 	
@@ -31,7 +31,7 @@ public class SecondActivity extends Activity {
 		actionBar.hide();
 		play = (Button)findViewById(R.id.play);
 		scale = (ImageButton)findViewById(R.id.imageButton1);								//Sets up our scale image
-		stopPlaying = (Button)findViewById(R.id.stopPlaying);
+//		stopPlaying = (Button)findViewById(R.id.stopPlaying);
 		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
 		Intent intent = getIntent();                                                       //These two lines give a good idea
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
@@ -88,23 +88,44 @@ public class SecondActivity extends Activity {
 	//Allows for the playing of the recording
 	public void play(View view) throws IllegalArgumentException,   
 	SecurityException, IllegalStateException, IOException{
-
+		if (playback == false){
 		m = new MediaPlayer();
 		m.setDataSource(path);
 		m.prepare();
 		m.start();
 		Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
-
-	}
-	
-	//Allows for user to stop the playback of the recording
-		public void stopPlay(View view) {
+		playback = true;
+		play.setBackgroundResource(R.drawable.stopp);
+		}
+		
+		else if (playback == true){
 			try {
 				if (m != null) {
 					m.stop();
 					m.release();
 					m = null;
 					// reset.setEnabled(true);              //enables the reset of the recording, we don't have that yet
+					Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
+							Toast.LENGTH_SHORT).show();
+					playback = false;
+					play.setBackgroundResource(R.drawable.play);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+
+	}
+	
+	//Allows for user to stop the playback of the recording
+/*		public void stopPlay(View view) {
+			try {
+				if (m != null) {
+					m.stop();
+					m.release();
+					m = null;
+					//reset.setEnabled(true);              //enables the reset of the recording, we don't have that yet
 					Toast.makeText(getApplicationContext(), "Stop playing the recording...",	   
 							Toast.LENGTH_SHORT).show();
 				}
@@ -115,7 +136,7 @@ public class SecondActivity extends Activity {
 
 
 		}
-		
+	*/	
 		//This is to put starting and stopping of the recording on one button, but can't get it working right now
 		
 		//public void startStopPlaying(View view) throws IllegalArgumentException, SecurityException, IllegalStateException, IOException{

@@ -34,9 +34,9 @@
         android:layout_marginLeft="275dp"
         android:layout_marginTop="411dp"
         android:onClick = "play"
-        android:background="@null" />
+        android:background="@drawable/play" />
 
-    <Button
+ <!--   <Button
         android:id="@+id/stopPlaying"
        android:layout_width="95dp"
         android:layout_height="83dp"
@@ -44,7 +44,7 @@
         android:layout_marginLeft="350dp"
         android:onClick="stopPlay"
         android:background="@drawable/stopp" />
-
+-->
     <Button
         android:id="@+id/getOverIt"
         android:layout_width="390dp"
