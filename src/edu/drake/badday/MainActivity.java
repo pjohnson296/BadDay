@@ -38,8 +38,9 @@ public class MainActivity extends Activity {
 	//When called, changes to next page
 	public void sendMessage(View view){
 		Intent intent = new Intent(this, SecondActivity.class);
-		intent.putExtra("path", outputFile);                         //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent.putExtra("path", outputFile); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
 		intent.putExtra("time", totalTime);
+		System.out.println(totalTime);
 		startActivity(intent);
 	}
 

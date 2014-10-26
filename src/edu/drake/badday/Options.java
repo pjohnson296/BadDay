@@ -25,12 +25,17 @@ public class Options extends Activity {
 		return true;
 	}
 
-	public void openEat(View view){
+	public void openEat(View view){										//goes to food options 				
 		Intent intent = new Intent(this, Eat.class);
 		startActivity(intent);
 	}
-	public void openArchive(View view){
+	public void openArchive(View view){									//Opens the archive page
 		Intent intent = new Intent(this, Archive.class);
+		startActivity(intent);
+	}
+	
+	public void rantAgain(View view){									//sends back to the initial rant page when you select "rant" from the options
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
 	@Override
