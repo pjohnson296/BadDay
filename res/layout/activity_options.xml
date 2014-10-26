@@ -31,12 +31,12 @@
 
     <Button
         android:id="@+id/rant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/archiveButton"
-        android:layout_marginTop="108dp"
-        android:text="Back to Rant" 
-        android:onClick = "rantAgain"/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft = "84dp"
+        android:layout_marginTop="295dp"
+        android:onClick="rantAgain"
+        android:background="@null" />
 
 </RelativeLayout>
