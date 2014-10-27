@@ -78,6 +78,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Flame"
+            android:label="@string/title_activity_flame" >
+           
+        </activity>
+        <activity
+            android:name=".Gifview"
+            android:label="@string/title_activity_gifview" >
+        </activity>
     </application>
 
 </manifest>

@@ -17,5 +17,7 @@
     <string name="title_activity_eat">Eat</string>
     <string name="title_activity_archive">Archive</string>
     <string name="title_activity_delete_rant">DeleteRant</string>
+    <string name="title_activity_flame">Flame</string>
+    <string name="title_activity_gifview">Gifview</string>
 
 </resources>

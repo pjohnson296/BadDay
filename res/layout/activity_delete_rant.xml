@@ -17,5 +17,14 @@
          android:layout_marginLeft="148dp"
          android:background="@null"
         android:onClick="openArchive"/>
+      <Button
+        android:id="@+id/confirm"
+        android:layout_width="179dp"
+        android:layout_height="76dp"
+        android:layout_marginLeft="207dp"
+        android:layout_marginTop="493dp"
+        android:onClick = "flames"
+        android:background="@null" />
+    
    
 </RelativeLayout>
