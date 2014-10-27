@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,8 +71,11 @@ public class SecondActivity extends Activity {
 	}
 	
 	public void openShare(View view){
-		Intent intent = new Intent(this, ShareScreen.class);
-		startActivity(intent);
+		Uri uri = Uri.parse(path);
+	    Intent share = new Intent(Intent.ACTION_SEND);
+	    share.setType("audio/*");
+	    share.putExtra(Intent.EXTRA_STREAM, uri);
+	    startActivity(Intent.createChooser(share, "Share Sound File"));
 	}
 	public void deleterant(View view){
 		Intent intent = new Intent(this, DeleteRant.class);
