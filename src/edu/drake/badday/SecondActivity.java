@@ -6,8 +6,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,10 +21,12 @@ public class SecondActivity extends Activity {
 
 	private String path;
 	private MediaPlayer m;
+	private String outputFile = null;
 	private boolean playback = false;                   //only used for when I was trying to put everything on one button
 	private Button play,stopPlaying, startStopPlaying;
 	int totalTime;
 	ImageButton scale;
+	MediaRecorder myAudioRecorder;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,16 @@ public class SecondActivity extends Activity {
 		play = (Button)findViewById(R.id.play);
 		scale = (ImageButton)findViewById(R.id.imageButton1);								//Sets up our scale image
 //		stopPlaying = (Button)findViewById(R.id.stopPlaying);
-		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying);    
+		//startStopPlaying = (Button)findViewById(R.id.startStopPlaying); 
+		outputFile = Environment.getExternalStorageDirectory().
+				getAbsolutePath() + "/myrecording.3gp";;
+
+				myAudioRecorder = new MediaRecorder();
+				myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+				myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+				myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+				myAudioRecorder.setOutputFile(outputFile);
+				
 		Intent intent = getIntent();                                                       //These two lines give a good idea
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
@@ -50,6 +63,7 @@ public class SecondActivity extends Activity {
 		}
 		
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,6 +101,8 @@ public class SecondActivity extends Activity {
 	}
 	public void openArchive(View view){
 		Intent intent = new Intent(this, Archive.class);
+		intent.putExtra("path", outputFile); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent.putExtra("time", totalTime);
 		startActivity(intent);
 	}
 	//Allows for the playing of the recording
