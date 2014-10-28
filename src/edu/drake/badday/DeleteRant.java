@@ -12,7 +12,7 @@ public class DeleteRant extends Activity {
 
 	
 	public void flames(View view){
-		Intent intent = new Intent(this, Flame.class);
+		Intent intent = new Intent(this, Options.class);
 		startActivity(intent);
 	}
 	@Override
