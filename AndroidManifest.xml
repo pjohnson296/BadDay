@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".TitlePage"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".TitlePage" >
+            android:parentActivityName=".TitlePage"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.TitlePage" />
@@ -36,7 +38,8 @@
         <activity
             android:name=".SecondActivity"
             android:label="@string/title_activity_second"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.MainActivity" />
@@ -44,7 +47,8 @@
         <activity
             android:name=".ShareScreen"
             android:label="@string/title_activity_share_screen"
-            android:parentActivityName=".SecondActivity" >
+            android:parentActivityName=".SecondActivity" 
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.SecondActivity" />
@@ -52,7 +56,8 @@
         <activity
             android:name=".Options"
             android:label="@string/title_activity_options"
-            android:parentActivityName=".SecondActivity" >
+            android:parentActivityName=".SecondActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.SecondActivity" />
@@ -60,18 +65,21 @@
         <activity
             android:name=".Eat"
             android:label="@string/title_activity_eat"
-            android:parentActivityName=".Options" >
+            android:parentActivityName=".Options"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.drake.badday.Options" />
         </activity>
         <activity
             android:name=".Archive"
-            android:label="@string/title_activity_archive" >
+            android:label="@string/title_activity_archive"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".DeleteRant"
-            android:label="@string/title_activity_delete_rant" >
+            android:label="@string/title_activity_delete_rant"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
