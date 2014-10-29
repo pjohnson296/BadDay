@@ -38,5 +38,23 @@
         android:layout_marginTop="295dp"
         android:onClick="rantAgain"
         android:background="@null" />
+     <Button
+        android:id="@+id/music"
+        android:layout_width="212dp"
+        android:layout_height="203dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="68dp"
+        android:layout_marginTop="498dp"
+        android:background="@drawable/musicsoon" />
+     <Button
+        android:id="@+id/laugh"
+        android:layout_width="212dp"
+        android:layout_height="203dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="498dp"
+        android:background="@drawable/laughsoon" />
 
+   
 </RelativeLayout>
