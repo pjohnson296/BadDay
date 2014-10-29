@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 
 
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -175,6 +176,7 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, Archive.class);
 		startActivity(intent);
 	}
+	
 	//starts and stops the recording by calling the start and stop methods
 	public void startStop(View view){
 
