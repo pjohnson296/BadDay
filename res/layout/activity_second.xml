@@ -52,8 +52,8 @@
         android:layout_alignParentBottom="true"
          android:layout_marginLeft="100dp"
         android:layout_marginBottom="125dp"
-        android:onClick="openOptions" />
-  <!--        android:background="@null"  --> 
+        android:onClick="openOptions" 
+        android:background="@null" /> 
 
     <Button
         android:id="@+id/share"
@@ -62,8 +62,8 @@
         android:layout_marginBottom="75dp"
         android:layout_marginLeft="102dp"
         android:layout_alignBottom="@+id/getOverIt"
-        android:onClick="openShare" />
-    <!--     android:background="@null" -->
+        android:onClick="openShare" 
+        android:background="@null" />
     
      <Button
         android:id="@+id/delete"
@@ -72,8 +72,8 @@
         android:layout_marginBottom="75dp"
         android:layout_marginLeft="298dp"
         android:layout_alignBottom="@+id/getOverIt"
-        android:onClick="deleterant"  />
-      <!-- android:background="@null"  --> 
+        android:onClick="deleterant"  
+        android:background="@null"   />
 
      <ImageButton
          android:id="@+id/imageButton1"
