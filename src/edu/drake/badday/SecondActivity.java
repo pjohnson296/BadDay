@@ -51,17 +51,37 @@ public class SecondActivity extends Activity {
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
 		System.out.println("Time of recording = " + totalTime + " seconds");
-		if (totalTime < 5){																	// v These lines set the scale to whatever image is appropriate v
-			System.out.println("very short, eh?");
-			scale.setBackgroundResource(R.drawable.blue);
+		if (totalTime < 10){																	// v These lines set the scale to whatever image is appropriate v
+			//System.out.println("very short, eh?");
+			scale.setBackgroundResource(R.drawable.onerant);
 		}
-		else if(totalTime> 5 && totalTime < 10){
-			scale.setBackgroundResource(R.drawable.cloudandblue);
+		else if(totalTime> 10 && totalTime < 20){
+			scale.setBackgroundResource(R.drawable.tworant);
+		}
+		else if(totalTime> 20 && totalTime < 30){
+			scale.setBackgroundResource(R.drawable.threerant);
+		}
+		else if(totalTime> 30 && totalTime < 40){
+			scale.setBackgroundResource(R.drawable.fourrant);
+		}
+		else if(totalTime> 40 && totalTime < 50){
+			scale.setBackgroundResource(R.drawable.fiverant);
+		}
+		else if(totalTime> 50 && totalTime < 60){
+			scale.setBackgroundResource(R.drawable.sixrant);
+		}
+		else if(totalTime> 60 && totalTime < 70){
+			scale.setBackgroundResource(R.drawable.sevenrant);
+		}
+		else if(totalTime> 70 && totalTime < 80){
+			scale.setBackgroundResource(R.drawable.eightrant);
+		}
+		else if(totalTime> 80 && totalTime < 90){
+			scale.setBackgroundResource(R.drawable.ninerant);
 		}
 		else{
-			scale.setBackgroundResource(R.drawable.childishfrank);
+			scale.setBackgroundResource(R.drawable.tenrant);
 		}
-		
 	}
 	
 
