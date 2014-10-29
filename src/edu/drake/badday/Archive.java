@@ -34,10 +34,10 @@ public class Archive extends Activity {
 		Intent intent = getIntent();                                                       //These two lines give a good idea
 		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
 		totalTime = intent.getExtras().getInt("time");
-		TextView tv1 = (TextView)(findViewById(R.id.name));
+		//TextView tv1 = (TextView)(findViewById(R.id.name));
 		//TextView time = (TextView)(findViewById(R.id.time));
 		//time.setText(totalTime);
-		tv1.setText("My Recording");
+		//tv1.setText("My Recording");
 	}
 
 	@Override
