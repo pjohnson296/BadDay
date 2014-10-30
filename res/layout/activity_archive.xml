@@ -19,7 +19,8 @@
          android:layout_marginTop="190dp"
          android:layout_alignParentTop="true"
          android:clickable="true"
-         android:onClick="play" />
+         android:onClick="play"
+         android:background="@null" />
   <!--    android:layout_centerHorizontal="true" -->
     
 </RelativeLayout>
