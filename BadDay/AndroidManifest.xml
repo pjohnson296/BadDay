@@ -8,19 +8,92 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ranticon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name=".TitlePage"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".TitlePage"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.TitlePage" />
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/title_activity_second"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ShareScreen"
+            android:label="@string/title_activity_share_screen"
+            android:parentActivityName=".SecondActivity" 
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.SecondActivity" />
+        </activity>
+        <activity
+            android:name=".Options"
+            android:label="@string/title_activity_options"
+            android:parentActivityName=".SecondActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.SecondActivity" />
+        </activity>
+        <activity
+            android:name=".Eat"
+            android:label="@string/title_activity_eat"
+            android:parentActivityName=".Options"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.drake.badday.Options" />
+        </activity>
+        <activity
+            android:name=".Archive"
+            android:label="@string/title_activity_archive"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".DeleteRant"
+            android:label="@string/title_activity_delete_rant"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Flame"
+            android:label="@string/title_activity_flame" >
+           
+        </activity>
+        <activity
+            android:name=".Gifview"
+            android:label="@string/title_activity_gifview" >
         </activity>
     </application>
 
