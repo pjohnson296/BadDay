@@ -172,10 +172,10 @@ public class MainActivity extends Activity {
 //		return super.onOptionsItemSelected(item);
 //	}
 	
-	public void openArchive(View view){
-		Intent intent = new Intent(this, Archive.class);
-		startActivity(intent);
-	}
+//	public void openArchive(View view){
+//		Intent intent = new Intent(this, Archive.class);
+//		startActivity(intent);
+//	}
 	
 	//starts and stops the recording by calling the start and stop methods
 	public void startStop(View view){

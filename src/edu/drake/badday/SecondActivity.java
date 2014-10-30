@@ -47,9 +47,9 @@ public class SecondActivity extends Activity {
 				myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
 				myAudioRecorder.setOutputFile(outputFile);
 				
-		Intent intent = getIntent();                                                       //These two lines give a good idea
-		path = intent.getExtras().getString("path");                                       // of how to receive a passed string
-		totalTime = intent.getExtras().getInt("time");
+		Intent intent3 = getIntent();                                                       //These two lines give a good idea
+		path = intent3.getExtras().getString("path");                                       // of how to receive a passed string
+		totalTime = intent3.getExtras().getInt("time");
 		System.out.println("Time of recording = " + totalTime + " seconds");
 		if (totalTime < 10){																	// v These lines set the scale to whatever image is appropriate v
 			//System.out.println("very short, eh?");
@@ -117,13 +117,15 @@ public class SecondActivity extends Activity {
 	}
 	public void openOptions(View view){
 		Intent intent = new Intent(this, Options.class);
-		startActivity(intent);
-	}
-	public void openArchive(View view){
-		Intent intent = new Intent(this, Archive.class);
 		intent.putExtra("path", outputFile); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
 		intent.putExtra("time", totalTime);
 		startActivity(intent);
+	}
+	public void openArchive(View view){
+		Intent intent2 = new Intent(this, Archive.class);
+		intent2.putExtra("path", outputFile); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent2.putExtra("time", totalTime);
+		startActivity(intent2);
 	}
 	//Allows for the playing of the recording
 	public void play(View view) throws IllegalArgumentException,   
