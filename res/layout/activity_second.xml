@@ -77,13 +77,8 @@
 
      <ImageButton
          android:id="@+id/imageButton1"
-<<<<<<< HEAD
-         android:layout_width="500dp"
-         android:layout_height="300dp"
-=======
          android:layout_width="450dp"
          android:layout_height="280dp"
->>>>>>> b3a4576f3ca376a57e64d909eed256a6c2b66e5c
          android:layout_above="@+id/getOverIt"
          android:layout_centerHorizontal="true"
          android:layout_marginBottom="375dp"

@@ -113,6 +113,8 @@ public class SecondActivity extends Activity {
 	}
 	public void deleterant(View view){
 		Intent intent = new Intent(this, DeleteRant.class);
+		intent.putExtra("path", outputFile); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent.putExtra("time", totalTime);
 		startActivity(intent);
 	}
 	public void openOptions(View view){

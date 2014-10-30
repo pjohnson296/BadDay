@@ -10,9 +10,13 @@ import android.view.View;
 
 public class DeleteRant extends Activity {
 
+	String path;
+	int totalTime;
 	
 	public void openOptions(View view){
 		Intent intent = new Intent(this, Options.class);
+		intent.putExtra("path", path); //This bundles our outputFile path as a string and allows us to pass the string to the next activity
+		intent.putExtra("time", totalTime);
 		startActivity(intent);
 	}
 	@Override
@@ -21,6 +25,9 @@ public class DeleteRant extends Activity {
 		setContentView(R.layout.activity_delete_rant);
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
+		Intent intent3 = getIntent();                                                       //These two lines give a good idea
+		path = intent3.getExtras().getString("path");                                       // of how to receive a passed string
+		totalTime = intent3.getExtras().getInt("time");
 	}
 
 	@Override
