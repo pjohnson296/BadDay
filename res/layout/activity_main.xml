@@ -48,7 +48,8 @@
          android:layout_marginLeft="148dp"
          android:layout_toRightOf="@+id/startStop"
          android:background="@null"
-         android:onClick="openArchive" />
+/>
+             <!--  android:onClick="openArchive" --> 
 
      <Button
          android:id="@+id/startStop"

@@ -11,7 +11,7 @@ import android.view.View;
 public class DeleteRant extends Activity {
 
 	
-	public void flames(View view){
+	public void openOptions(View view){
 		Intent intent = new Intent(this, Options.class);
 		startActivity(intent);
 	}
